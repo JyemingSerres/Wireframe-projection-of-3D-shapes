@@ -11,6 +11,7 @@ import pygame
 from pygame import Vector3
 
 from config import Color, SCREEN_WIDTH, SCREEN_HEIGHT, TARGET_FRAME_RATE
+from utils import resource_path
 from shape_factory import ShapeFactory
 from camera import Camera
 from world import World
@@ -24,18 +25,22 @@ __author__ = "Jye-Ming Serres"
 pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+icon = pygame.image.load(resource_path("assets/icon.png"))
+pygame.display.set_icon(icon)
 pygame.display.set_caption("Wireframe projection of 3D shapes")
+
 pygame.event.set_grab(True)
 pygame.event.set_keyboard_grab(False)
 
 # Initialize the program
-camera = Camera(Vector3(0, 0, 0), 360)
 shape_factory = ShapeFactory()
 tetrahedron = shape_factory.make_shape("tetrahedron", Vector3(600, -600, 0), 100, Color.RED)
 cube = shape_factory.make_shape("cube", Vector3(600, -300, 0), 100, Color.BLUE)
 octahedron = shape_factory.make_shape("octahedron", Vector3(600, 0, 0), 100, Color.GREEN)
 dodecahedron = shape_factory.make_shape("dodecahedron", Vector3(600, 300, 0), 100, Color.YELLOW)
 icosahedron = shape_factory.make_shape("icosahedron", Vector3(600, 600, 0), 100, Color.CYAN)
+
+camera = Camera(Vector3(0, 0, 0), 360)
 world = World(camera, [tetrahedron, cube, octahedron, dodecahedron, icosahedron])
 display = Display(screen)
 engine = Engine(world, display, clock)
