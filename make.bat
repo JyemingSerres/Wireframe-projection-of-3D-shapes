@@ -3,7 +3,7 @@
 
 
 :: Name of the output executable file
-SET execname=Projection-of-3D-shapes
+SET execname=Wireframe-projection-of-3D-shapes
 
 :: Main script path
 SET mainscript=./src/main.py

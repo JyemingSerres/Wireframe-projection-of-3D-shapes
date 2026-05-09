@@ -24,7 +24,7 @@ __author__ = "Jye-Ming Serres"
 pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Projection of 3D shapes")
+pygame.display.set_caption("Wireframe projection of 3D shapes")
 pygame.event.set_grab(True)
 pygame.event.set_keyboard_grab(False)
 
