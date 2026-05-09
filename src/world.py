@@ -18,7 +18,7 @@ class World:
     """
 
     def __init__(self, camera: Camera, shapes: list[Shape]) -> None:
-        """Creates and instance containing the camera and shapes.
+        """Creates an instance containing the camera and shapes.
 
         Args:
             camera: A virtual camera controlled by the end user.
