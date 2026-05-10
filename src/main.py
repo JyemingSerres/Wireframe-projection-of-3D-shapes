@@ -29,9 +29,6 @@ icon = pygame.image.load(resource_path("assets/icon.png"))
 pygame.display.set_icon(icon)
 pygame.display.set_caption("Wireframe projection of 3D shapes")
 
-pygame.event.set_grab(True)
-pygame.event.set_keyboard_grab(False)
-
 # Initialize the program
 shape_factory = ShapeFactory()
 tetrahedron = shape_factory.make_shape("tetrahedron", Vector3(600, -600, 0), 100, Color.RED)

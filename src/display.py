@@ -23,7 +23,7 @@ class Display:
     """
 
     def __init__(self, screen: Surface) -> None:
-        """Creates and instance from a surface.
+        """Creates an instance from a surface.
 
         Args:
             screen: The surface to draw on.
@@ -35,7 +35,6 @@ class Display:
         self._background_color = Color.DEEP_SPACE
         self._ui_color = Color.WHITE
         self._ui_margin = 5
-        pygame.mouse.set_visible(False)
 
     def draw(self, world: World, fps: float) -> None:
         """Clears the last frame and draws a new view of the simulation and the UI on top.

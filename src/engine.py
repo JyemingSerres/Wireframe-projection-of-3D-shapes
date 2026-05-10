@@ -43,6 +43,11 @@ class Engine:
         self.clock = clock
         self._cam_control = CameraController(self.world.camera)
 
+        self._focus = True
+        pygame.event.set_grab(True)
+        pygame.mouse.set_visible(False)
+        pygame.event.set_keyboard_grab(False)
+
     def handle_events(self) -> None:
         """Handles pygame's event loop and other user inputs through pygame."""
         for event in pygame.event.get():
@@ -66,7 +71,17 @@ class Engine:
                         case pygame.K_w: self._cam_control.translate_event(CamEvent.BACKWARD_SHIFT)
                         case pygame.K_SPACE: self._cam_control.translate_event(CamEvent.DOWN_SHIFT)
                         case pygame.K_LSHIFT: self._cam_control.translate_event(CamEvent.UP_SHIFT)
-        self._cam_control.rotate_event(pygame.mouse.get_rel())
+                case pygame.WINDOWFOCUSLOST:
+                    self._focus = False
+                    pygame.event.set_grab(False)
+                    pygame.mouse.set_visible(True)
+                case pygame.WINDOWFOCUSGAINED:
+                    self._focus = True
+                    pygame.event.set_grab(True)
+                    pygame.mouse.set_visible(False)
+        
+        mouse_delta = pygame.mouse.get_rel() if self._focus else (0, 0)
+        self._cam_control.rotate_event(mouse_delta)
 
     def update_world(self) -> None:
         """Steps the simulation proportionally to real time elapsed.
