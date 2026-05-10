@@ -1,9 +1,9 @@
-:: Easily configure pyInstaller options to package the project into an executable
+:: Easily configure PyInstaller options to package the project into an executable
 @ECHO OFF
 
 
 :: Name of the output executable file
-SET execname=Wireframe-projection-of-3D-shapes
+SET execname=wireframe-projection-x86
 
 :: icon <path relative to workpath>
 SET icon=../src/assets/icon.png
@@ -23,8 +23,8 @@ SET data=../src/assets/*:./assets
 :: Optimization level
 SET level=2
 
-:: call pyInstaller
-pyInstaller %mainscript% ^
+:: call PyInstaller
+pyinstaller %mainscript% ^
     --name %execname% ^
     --icon %icon% ^
     --onefile --noconsole ^
@@ -36,7 +36,7 @@ pyInstaller %mainscript% ^
 
 ECHO.
 IF %ERRORLEVEL% NEQ 0 (
-    ECHO pyInstaller failed to package the project.
+    ECHO PyInstaller failed to package the project.
 ) ELSE (
     ECHO Executable packaged successfully!
 )
