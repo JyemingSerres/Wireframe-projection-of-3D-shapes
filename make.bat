@@ -3,7 +3,7 @@
 
 
 :: Name of the output executable file
-SET execname=wireframe-projection-x86
+SET execname=wireframe-projection-x86-64-windows
 
 :: icon <path relative to workpath>
 SET icon=../src/assets/icon.png

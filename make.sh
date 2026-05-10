@@ -3,7 +3,7 @@
 
 
 # Name of the output executable file
-execname=wireframe-projection-linux.bin
+execname=wireframe-projection-x86-64-linux
 
 # icon <path relative to workpath>
 icon=../src/assets/icon.png
