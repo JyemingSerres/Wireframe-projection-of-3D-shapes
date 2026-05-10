@@ -23,6 +23,7 @@ SET data=../src/assets/*:./assets
 :: Optimization level
 SET level=2
 
+@ECHO ON
 :: call PyInstaller
 pyinstaller %mainscript% ^
     --name %execname% ^
@@ -33,6 +34,8 @@ pyinstaller %mainscript% ^
     --workpath %workpath% ^
     --specpath %workpath% ^
     --add-data %data%
+
+@ECHO OFF
 
 ECHO.
 IF %ERRORLEVEL% NEQ 0 (
