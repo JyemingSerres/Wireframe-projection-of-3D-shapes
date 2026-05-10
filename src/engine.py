@@ -82,5 +82,6 @@ class Engine:
 
         Should be called after update_world().
         """
-        self.display.draw(self.world, self.clock.get_fps())
-        pygame.display.flip()
+        if (pygame.display.get_active()):
+            self.display.draw(self.world, self.clock.get_fps())
+            pygame.display.flip()
