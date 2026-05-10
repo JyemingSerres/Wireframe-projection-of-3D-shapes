@@ -32,9 +32,9 @@ pyinstaller $mainscript \
     --distpath $distpath \
     --workpath $workpath \
     --specpath $workpath \
-    --add-data $data
+    --add-data $data \
 
-if [$? -ne 0]; then
+if [ $? -ne 0 ]; then
     echo "PyInstaller failed to package the project."
 else
     echo "Executable packaged successfully!"
