@@ -109,7 +109,7 @@ class CameraController:
         Args:
             mouse_motion: Mouse motion in (x, y) since the last frame.
         """
-        self.camera.angular_velocity = -self.look_sens*Vector3(mouse_motion[0], mouse_motion[1], 0)
+        self.camera.rotate(-self.look_sens*Vector3(mouse_motion[0], mouse_motion[1], 0))
 
     def update(self) -> None:
         """Reevaluates the camera's rectilinear velocity."""

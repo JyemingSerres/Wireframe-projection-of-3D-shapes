@@ -73,7 +73,7 @@ class Camera:
             dt: Delta time (seconds).   
         """
         self.move(self.rectilinear_velocity * dt)
-        self.rotate(self.angular_velocity)
+        self.rotate(self.angular_velocity * dt)
 
     def move(self, displacement: Vector3) -> None:
         self._aperture += displacement
