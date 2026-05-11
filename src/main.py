@@ -24,7 +24,7 @@ __author__ = "Jye-Ming Serres"
 # Initialize Pygame
 pygame.init()
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SCALED, vsync=1)
 icon = pygame.image.load(resource_path("assets/icon.png"))
 pygame.display.set_icon(icon)
 pygame.display.set_caption("Wireframe projection of 3D shapes")
@@ -43,7 +43,7 @@ display = Display(screen)
 engine = Engine(world, display, clock)
 
 while engine.running:
-    clock.tick(TARGET_FRAME_RATE)
+    clock.tick(TARGET_FRAME_RATE) # Try to reach the target frame rate if vsync request is denied.
     engine.handle_events()
     engine.update_world()
     engine.render()
